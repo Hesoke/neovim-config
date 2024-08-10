@@ -1,0 +1,5 @@
+# No lazy lock
+lazy-lock.json
+
+#No lua lsp configs
+.luarc.json
