@@ -45,7 +45,15 @@ return {
 				options = {
 					theme = "dracula",
 				},
+				sections = {
+					lualine_c = {
+						{ "lsp_progress" },
+					},
+				},
 			})
 		end,
+	},
+	{
+		"arkav/lualine-lsp-progress",
 	},
 }

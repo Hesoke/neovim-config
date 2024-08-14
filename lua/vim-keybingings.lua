@@ -1,3 +1,6 @@
+-- other
+vim.api.nvim_set_keymap("v", "<c-c>", '"+y', { noremap = true, silent = true })
+
 -- completions
 local cmp = require("cmp")
 cmp.setup({
@@ -24,7 +27,9 @@ require("Comment").setup({
 --code actions
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+vim.keymap.set({ "v", "n" }, "ca", require("actions-preview").code_actions)
+vim.keymap.set("n", "<leader>dt", ":Trouble diagnostics toggle<CR>")
+vim.keymap.set("n", "<leader>qf", ":Trouble qflist toggle<CR>")
 
 -- debugging
 vim.keymap.set("n", "<Leader>b", function()

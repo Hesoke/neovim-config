@@ -7,16 +7,9 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"gopls",
-					"jsonls",
-				},
-				automatic_installation = true,
-			})
-		end,
+		opts = {
+			auto_install = true,
+		},
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -40,6 +33,16 @@ return {
 								},
 								staticcheck = true,
 							},
+						},
+						on_attach = function(client, bufnr)
+							vim.api.nvim_create_autocmd("LspProgress", {
+								callback = function()
+									vim.cmd("redrawstatus")
+								end,
+							})
+						end,
+						flags = {
+							debounce_text_changes = 150,
 						},
 					})
 				end,
