@@ -57,7 +57,7 @@ vim.keymap.set("n", "<leader>ha", function()
 	harpoon:list():add()
 end)
 vim.keymap.set("n", "<leader>hr", function()
-	harpoon:list():remove()
+	harpoon:list():clear()
 end)
 --harpoon telescope integration
 local conf = require("telescope.config").values
